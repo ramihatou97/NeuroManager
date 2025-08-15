@@ -1,0 +1,47 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Frontend: Chrome",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/neurosurgery-manager v1.0/Frontend",
+            "sourceMapPathOverrides": {
+                "webpack:///src/*": "${webRoot}/*"
+            }
+        },
+        {
+            "name": "Backend: Node.js",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/neurosurgery-manager v1.0/Backend/server.js",
+            "restart": true,
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "name": "Full Stack",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/neurosurgery-manager v1.0/Backend/server.js",
+            "restart": true,
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "serverReadyAction": {
+                "pattern": "listening on port ([0-9]+)",
+                "uriFormat": "http://localhost:%s",
+                "action": "debugWithChrome"
+            }
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Frontend + Backend",
+            "configurations": ["Frontend: Chrome", "Backend: Node.js"]
+        }
+    ]
+}
